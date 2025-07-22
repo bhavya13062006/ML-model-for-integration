@@ -1,10 +1,10 @@
-## Machine Learning for Integration and Differentiation
+# Machine Learning for Integration and Differentiation
 A trained model that solve beginner integration and differentiation problems
-#  Calculus Problem Generator & Solver ML Project
+##  Calculus Problem Generator & Solver ML Project
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![SymPy](https://img.shields.io/badge/SymPy-Mathematics-green)
-![Transformers](https://img.shields.io/badge/Transformers-T5-small-yellow)
+
 
 An end-to-end system for generating calculus problems and training ML models to solve them.
 
