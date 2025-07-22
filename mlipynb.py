@@ -40,22 +40,22 @@ def generate_calculus_problem():
     return {"problem": problem, "solution": solution, "type": ptype}
 
 # Generate dataset
-print("🧮 Generating synthetic calculus problems...")
+print(" Generating synthetic calculus problems...")
 problems = [generate_calculus_problem() for _ in range(1000)]  # Generate 1000 problems
 df = pd.DataFrame(problems)
 
 # Verify solutions
-print("✅ Generated dataset:")
+print(" Generated dataset:")
 print(df['type'].value_counts())
 
 # Show examples
-print("\n🔍 Sample Problems:")
+print("\n Sample Problems:")
 for i in range(3):
     display(Math(f"{df.iloc[i]['problem']} \\quad \\rightarrow \\quad {df.iloc[i]['solution']}"))
 
 # Save to CSV
 df.to_csv('synthetic_calculus.csv', index=False)
-print("\n💾 Saved to 'synthetic_calculus.csv'")
+print("\n Saved to 'synthetic_calculus.csv'")
 
 # Install required packages
 !pip install sympy matplotlib transformers --quiet
@@ -111,12 +111,12 @@ def generate_advanced_problem():
     }
 
 # Generate 2000 problems
-print("🧮 Generating advanced calculus problems...")
+print(" Generating advanced calculus problems...")
 problems = [generate_advanced_problem() for _ in range(2000)]
 df = pd.DataFrame(problems)
 
 # Display samples
-print("\n🔍 Sample Advanced Problems:")
+print("\n Sample Advanced Problems:")
 for i in range(3):
     display(Math(f"{df.iloc[i]['problem']} \\quad \\Rightarrow \\quad {df.iloc[i]['solution']}"))
 
@@ -130,14 +130,14 @@ df['completion'] = df['solution']
 from sklearn.model_selection import train_test_split
 train_df, test_df = train_test_split(df, test_size=0.2, random_state=42)
 
-print(f"\n📊 Dataset split:")
+print(f"\n Dataset split:")
 print(f"- Training samples: {len(train_df)}")
 print(f"- Test samples: {len(test_df)}")
 
 # Save datasets
 train_df.to_csv('calculus_train.csv', index=False)
 test_df.to_csv('calculus_test.csv', index=False)
-print("💾 Saved training and test sets")
+print(" Saved training and test sets")
 
 # Configure plotting
 plt.style.use('ggplot')
@@ -160,7 +160,7 @@ plt.tight_layout()
 plt.show()
 
 # Example statistics
-print("\n📈 Dataset Statistics:")
+print("\n Dataset Statistics:")
 print(f"- Most complex problem: {df.loc[df['difficulty'] == 'advanced', 'problem'].iloc[0]}")
 print(f"- Longest solution: {max(df['solution'].str.len())} characters")
 
@@ -178,11 +178,7 @@ training_args = TrainingArguments(
     logging_dir='./logs',
 )
 
-print("\n🚀 Model ready for training!")
+print("\n Model ready for training!")
 print(f"Architecture: {model.config.model_type}")
 print(f"Parameters: {model.num_parameters():,}")
 
-# Note: For full training, you'd need to:
-# 1. Create a Dataset class
-# 2. Implement proper tokenization
-# 3. Set up evaluation metrics
